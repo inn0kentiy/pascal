@@ -1,0 +1,16 @@
+Program fact;        {Вычисление факториала с помощью рекурсии}
+ 
+var n:integer;
+
+function fac(n:integer):integer;
+begin
+if n>1 then
+fac:=n*fac(n-1)
+else
+fac:=1;
+end;
+
+begin
+readln(n);
+writeln(fac(n));
+end.

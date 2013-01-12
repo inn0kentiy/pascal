@@ -1,0 +1,68 @@
+Program HQ9+;
+
+Uses CRT;
+label nach;
+var
+a:string;
+i,s,j:integer;
+f:boolean;
+
+
+begin
+
+nach:
+ClrScr;
+writeln('H - вывод сообщения "Hellow World!"');
+writeln('Q - вывод исходного кода программы');
+writeln('9 - вывод  стихотворения "99 Bottles of Beer on the Wall"');
+writeln('+ - увеличивает на еденицу счетчик');
+writeln('exit - выход: не относится к командам языка, использовать для завершения работы в среде');
+
+readln(a);
+ClrScr;
+
+if a='exit' then
+exit;
+
+for i:=1 to length(a) do
+begin
+  case a[i] of
+    'h','H','q','Q','9','+': f:=true;
+  else
+    begin
+    f:=false;
+    writeln('Неправельная команда');
+    break;
+    end;
+  end;
+end;  
+
+s:=0;
+
+for i:=1 to length(a) do
+if f then
+  begin
+  if a[i]='h' then
+    writeln('Hellow World!');
+  if a[i]='+' then
+    s:=s+1;
+  if a[i]='9' then
+    for j:=99 downto 1 do
+      begin
+      writeln(j, ' bottles of beer');
+      writeln('you take one down, pass it around,');
+      if j>1 then
+        writeln(j-1,' bottles of beer on the wall.')
+      else
+        writeln('no more bottles of beer on the wall.');  
+      writeln; 
+      end;
+  if a[i]='q' then
+    writeln(a);
+  end;
+  
+write('Для продолжения нажмите enter');
+readln;
+
+goto nach;  
+end.     

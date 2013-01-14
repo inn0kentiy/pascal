@@ -1,4 +1,4 @@
-Program HQ9+;
+Program HQ9plus;
 
 Uses CRT;
 label nach;
